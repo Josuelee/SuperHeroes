@@ -96,11 +96,11 @@ const GeneralList = ({
             <Grid
               columnCount={grid.columns}
               columnWidth={width / grid.columns}
-              height={600}
+              height={650}
               rowCount={Math.ceil(generalList.length / grid.columns)}
               overscanRowCount={20}
               rowHeight={205}
-              width={1350}
+              width={1500}
             >
               {({ columnIndex, rowIndex, style }) => {
                 const i = gridPosition(columnIndex, rowIndex);
