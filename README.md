@@ -4,6 +4,9 @@ Choose your favorites superheroes in Super Hero APP. Using react window library 
 
 When you add a superhero to your favorites list, it will be removed from the general list , and also, if you remove a superhero from your favorites list, it will be added to the general list
 
+npm install to add node modules
+npm start to start this proyect
+
 - React JS
 - React Window
 - Reducers
@@ -16,11 +19,11 @@ When you add a superhero to your favorites list, it will be removed from the gen
 
 API URL: https://akabab.github.io/superhero-api/api/all.json
 
-# Favorite Section
+## Favorite Section
 
 ![Favorite Section](favoriteSection.jpeg)
 
-# General Section
+## General Section
 
 ![Favorite Section](allHeroes.jpeg)
 
