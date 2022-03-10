@@ -2,6 +2,8 @@
 
 Choose your favorites superheroes in Super Hero APP. Using react window library to render the necessary cards in the UI
 
+npm install to add node modules and libraries - npm start to run this proyect
+
 - React JS
 - React Window
 - Reducers
@@ -12,14 +14,10 @@ Choose your favorites superheroes in Super Hero APP. Using react window library 
 
 API URL: https://akabab.github.io/superhero-api/api/all.json
 
-# Favorite Section
+## Favorite Section
 
-![Favorite Section](favoriteSection.jpeg)
+![Favorite Section](src/assets/img/favoriteSection.jpeg)
 
-# General Section
+## General Section
 
-![Favorite Section](allHeroes.jpeg)
-
-# General Section
-
-![Favorite Section](allHeroes.jpeg)
+![Favorite Section](src/assets/img/allHeroes.jpeg)
