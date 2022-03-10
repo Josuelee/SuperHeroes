@@ -1,8 +1,9 @@
 import "../App.css";
-import { FixedSizeList as List } from "react-window";
+import { FixedSizeGrid as Grid } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import HeroCard from "./HeroCard";
 import searchLogo from "../assets/search/search.svg";
+import { useMediaQuery } from "@mui/material";
 
 const GeneralList = ({
   generalList,
@@ -11,6 +12,11 @@ const GeneralList = ({
   handleChange,
   searchList,
 }) => {
+  const S = useMediaQuery("(min-width:360px)");
+  const M = useMediaQuery("(min-width:600px)");
+  const L = useMediaQuery("(min-width:1024px)");
+  const XL = useMediaQuery("(min-width:1600px)");
+
   if (generalList.length < 1) return null;
 
   localStorage.setItem("generalList", JSON.stringify(generalList));
@@ -52,6 +58,23 @@ const GeneralList = ({
     );
   };
 
+  const gridPosition = (col, row) => row * 6 + col;
+  const grid = {
+    columns: 0,
+  };
+
+  if (XL) {
+    grid.columns = 6;
+  } else if (L) {
+    grid.columns = 4;
+  } else if (M) {
+    grid.columns = 3;
+  } else if (S) {
+    grid.columns = 2;
+  } else {
+    grid.columns = 2;
+  }
+
   return (
     <div className="generalList container">
       <div className="generalList__container">
@@ -66,12 +89,24 @@ const GeneralList = ({
           />
         </div>
       </div>
+
       {generalList.length >= 0 ? (
         <AutoSizer>
           {({ width }) => (
-            <List height={600} itemCount={1000} itemSize={370} width={width}>
-              {Row}
-            </List>
+            <Grid
+              columnCount={grid.columns}
+              columnWidth={width / grid.columns}
+              height={600}
+              rowCount={Math.ceil(generalList.length / grid.columns)}
+              overscanRowCount={20}
+              rowHeight={205}
+              width={1350}
+            >
+              {({ columnIndex, rowIndex, style }) => {
+                const i = gridPosition(columnIndex, rowIndex);
+                return <Row style={style} index={i} />;
+              }}
+            </Grid>
           )}
         </AutoSizer>
       ) : (
