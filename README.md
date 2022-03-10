@@ -5,7 +5,7 @@ Choose your favorites superheroes in Super Hero APP. Using react window library 
 When you add a superhero to your favorites list, it will be removed from the general list , and also, if you remove a superhero from your favorites list, it will be added to the general list
 
 npm install to add node modules
-...npm start to start this proyect
+... npm start to start this proyect
 
 - React JS
 - React Window
