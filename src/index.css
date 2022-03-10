@@ -1,3 +1,25 @@
+:root {
+  --main-backgroundColor: #110135;
+  --main-color: #fff;
+  --second-color: #875fdd;
+  --third-color: #3e2477;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,25 +27,150 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--main-backgroundColor);
+  color: var(--main-color);
 }
 
-.hero {
-  background-color: transparent;
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+.generalList {
+  height: 100vh;
+}
+
+.generalList__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.generalList__img {
+  display: inline-block;
+}
+
+.generalList__search {
+  display: flex;
+  align-items: center;
+}
+
+.generalList__search input {
+  outline: none;
+  background-color: var(--third-color);
+  border: none;
+  border-radius: 1rem;
+  color: var(--main-color);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.favoritesList {
+  border: 2px solid #261057;
+  border-radius: 1rem;
+  transition: background-color 0.5s ease-in;
+  height: 50vh;
+  transition: height 0.5s ease;
+}
+.favoriteList--desactivate {
+  background-color: var(--third-color);
+  height: 50px;
+}
+.favoriteList--height {
+  height: auto;
+}
+
+.favoriteList-container {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  height: 50px;
+}
+
+.favoriteList-container h2 {
+  margin: 0;
+}
+
+.favoriteList__arrow {
+  display: block;
+  margin-left: auto;
+  width: 25px;
+  margin-right: 1rem;
+}
+
+.favoriteList__img-container,
+.hero__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  border-radius: 100%;
+  border: none;
+  background-color: var(--second-color);
+  height: 25px;
+}
+
+.favoriteList__img,
+.hero__button img {
+  display: block;
+  padding: 0.2rem;
 }
 
 .heros-general {
   display: grid;
-  background-color: aqua;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.hero__button {
-  background-color: #000;
-  width: 50px;
-  height: 50px;
+.heros-general-filter {
+  display: none;
 }
 
-.hero__button img {
-  width: 100%;
+.hero {
+  background-color: transparent;
+  height: 190px;
+}
+
+.hero__container {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   height: 100%;
+}
+
+.hero__img-box {
+  position: relative;
+  height: 80%;
+}
+
+.hero__img {
+  height: 100%;
+}
+.hero__button {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.hero__data {
+  height: 80%;
+}
+
+.hero__data h3 {
+  margin: 0;
+}
+
+.hero__data p {
+  font-size: 0.9rem;
+}
+
+.hero__power {
+  display: flex;
+  gap: 5px;
 }

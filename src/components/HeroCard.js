@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import heart from "../assets/big-heart/big-heart.svg";
 import heartFilled from "../assets/medium-filled-heart/medium-filled-heart.svg";
+import powerLogo from "../assets/fist/fist.svg";
 
 const HeroCard = ({
   style,
@@ -22,7 +23,6 @@ const HeroCard = ({
 
     return result / 10;
   }, [powerstats]);
-
   return (
     <article className="hero" style={style}>
       <div className="hero__container">
@@ -35,11 +35,13 @@ const HeroCard = ({
             <img src={added ? heartFilled : heart} alt="HEART" />
           </button>
         </div>
-        <div>
+        <div className="hero__data">
           <h3>{name}</h3>
           <p>Real Name: {realname}</p>
           <p>
-            <span>LOGO {power}/10</span>
+            <span className="hero__power">
+              <img src={powerLogo} alt="pLogo" /> {power}/10
+            </span>
           </p>
         </div>
       </div>

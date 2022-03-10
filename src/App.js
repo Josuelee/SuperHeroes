@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
 import { heroInitialState, heroReducer } from "./reducers/heroReducer";
 import { TYPES } from "./actions/heroActions";
 import FavoriteList from "./components/FavoriteList";
@@ -7,7 +7,9 @@ import MainHeader from "./components/MainHeader";
 
 const App = () => {
   const [state, dispatch] = useReducer(heroReducer, heroInitialState);
-  const { generalList, favoritesList } = state;
+  const { generalList, favoritesList, searchList } = state;
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("https://akabab.github.io/superhero-api/api/all.json")
@@ -22,6 +24,7 @@ const App = () => {
           dispatch({ type: TYPES.READ_ALL_HEROS, payload: json });
         }
       });
+    // localStorage.setItem("generalList", "[]");
   }, []);
 
   useEffect(() => {
@@ -53,12 +56,20 @@ const App = () => {
     const findHero = localFavorites.find((el) => el.id === id);
     dispatch({ type: TYPES.REMOVE_FROM_FAVORITE, payload: findHero });
 
-    // borrar de favoritos
+    // delete from favoritos
     const removData = localFavorites.filter((el) => el.id !== findHero.id);
     localStorage.setItem("favoriteHeros", JSON.stringify(removData));
 
-    // agregar lista general
+    // add generalList
     localStorage.setItem("generalList", [findHero, ...localGeneral]);
+  };
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+    if (e.target.value.length <= 0) {
+      dispatch({ type: "CLEAR_SEARCH" });
+    }
+    dispatch({ type: TYPES.FILTER_SEARCH, payload: e.target.value });
   };
 
   return (
@@ -68,7 +79,13 @@ const App = () => {
         removeFavorite={removeFavorite}
         favoritesList={favoritesList}
       />
-      <GeneralList generalList={generalList} addFavorite={addFavorite} />
+      <GeneralList
+        generalList={generalList}
+        addFavorite={addFavorite}
+        search={search}
+        handleChange={handleChange}
+        searchList={searchList}
+      />
     </div>
   );
 };
