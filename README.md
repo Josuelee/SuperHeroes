@@ -21,9 +21,9 @@ API URL: https://akabab.github.io/superhero-api/api/all.json
 
 ## General Section
 
-<<<<<<< HEAD
+
 ![Favorite Section](src/assets/img/allHeroes.jpeg)
 =======
 ![Favorite Section](allHeroes.jpeg)
 
-> > > > > > > fb2f18fe4c5bf312c977b706e4bb4567b3e25829
+
