@@ -11,6 +11,7 @@ When you add a superhero to your favorites list, it will be removed from the gen
 - Material UI
 - Local Storage
 - Rest API's
+- emmet CSS
 
 API URL: https://akabab.github.io/superhero-api/api/all.json
 
